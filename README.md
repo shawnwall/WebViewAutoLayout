@@ -1,4 +1,4 @@
 WebViewAutoLayout
 =================
 
-Testing out some autolayout with webviews mixed in
+Testing out some programmatic autolayout with UIWebViews mixed in, all in a UIScrollView!
