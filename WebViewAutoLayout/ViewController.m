@@ -41,7 +41,8 @@
 #pragma mark -
 
 - (void)loadTestViews {
-    UIWebView *lastWebView = nil;
+    UIView *lastView = nil;
+    int i = 1;
     for (NSString *html in self.htmlStrings) {
         UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
         webView.delegate = self;
@@ -52,11 +53,26 @@
         [self.view addConstraint:leftConstraint];
         NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:webView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
         [self.view addConstraint:rightConstraint];
-        if (lastWebView) {
-            NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:webView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:lastWebView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10.0];
+        
+        if (lastView) {
+            NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:webView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:lastView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10.0];
             [self.view addConstraint:topConstraint];
         }
-        lastWebView = webView;
+        
+        UIView *testView = [[UIView alloc] initWithFrame:CGRectZero];
+        testView.translatesAutoresizingMaskIntoConstraints = NO;
+        [testView setBackgroundColor:[UIColor orangeColor]];
+        [self.view addSubview:testView];
+        lastView = testView;
+        
+        NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:testView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:webView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10.0];
+        [self.view addConstraint:topConstraint];
+        NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:testView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
+        [self.view addConstraint:left];
+        NSLayoutConstraint *right = [NSLayoutConstraint constraintWithItem:testView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0];
+        [self.view addConstraint:right];
+        NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:testView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:i++*10.0f];
+        [testView addConstraint:heightConstraint];
     }
 }
 
