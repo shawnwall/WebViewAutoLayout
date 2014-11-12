@@ -384,6 +384,7 @@
 				GCC_PREFIX_HEADER = "WebViewAutoLayout/WebViewAutoLayout-Prefix.pch";
 				INFOPLIST_FILE = "WebViewAutoLayout/WebViewAutoLayout-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -397,6 +398,7 @@
 				GCC_PREFIX_HEADER = "WebViewAutoLayout/WebViewAutoLayout-Prefix.pch";
 				INFOPLIST_FILE = "WebViewAutoLayout/WebViewAutoLayout-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -462,6 +464,7 @@
 				E5C0DD2F183BC8BE00DB802D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5C0DD30183BC8BE00DB802D /* Build configuration list for PBXNativeTarget "WebViewAutoLayoutTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +473,7 @@
 				E5C0DD32183BC8BE00DB802D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
